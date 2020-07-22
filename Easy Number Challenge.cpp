@@ -13,7 +13,7 @@ using namespace std;
 typedef long long int ll;
 
 #define N 1000001
-long long count[N];
+long long countFact[N];
 
 int main()
 {
@@ -23,11 +23,11 @@ int main()
 
     ll n = a * b * c;
 
-    memset(count, 0, sizeof(count));
+    memset(countFact, 0, sizeof(countFact));
 
     for(ll i = 1; i <= n; i++){
         for(ll j = i; j <= n; j+=i){
-            count[j]++;
+            countFact[j]++;
         }
     }
 
@@ -35,7 +35,7 @@ int main()
     for(ll i = 1; i <= a; i++){
         for(ll j = 1; j <= b; j++){
             for(ll k = 1; k <= c; k++){
-                sum = ((sum % mod) + (count[i * j * k] % mod)) % mod;
+                sum = ((sum % mod) + (countFact[i * j * k] % mod)) % mod;
             }
         }
     }
